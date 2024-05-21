@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/utils" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/city_input" />
+            <option value="$PROJECT_DIR$/features/city_input/data" />
+            <option value="$PROJECT_DIR$/features/city_input/domain" />
+            <option value="$PROJECT_DIR$/features/city_input/presentation" />
+            <option value="$PROJECT_DIR$/features/current_weather" />
+            <option value="$PROJECT_DIR$/features/current_weather/data" />
+            <option value="$PROJECT_DIR$/features/current_weather/domain" />
+            <option value="$PROJECT_DIR$/features/current_weather/presentation" />
+            <option value="$PROJECT_DIR$/features/seven_days_forecast" />
+            <option value="$PROJECT_DIR$/features/seven_days_forecast/data" />
+            <option value="$PROJECT_DIR$/features/seven_days_forecast/domain" />
+            <option value="$PROJECT_DIR$/features/seven_days_forecast/presentation" />
+          </set>
+        </option>
+        <option name="resolveExternalAnnotations" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
