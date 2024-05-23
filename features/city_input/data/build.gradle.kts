@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.dagger.hilt)
 }
 
 android {
@@ -12,6 +14,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
     }
 
     buildTypes {
@@ -34,10 +37,24 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
+    implementation(project(":data"))
+    implementation(project(":features:city_input:domain"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(project(":features:current_weather:domain"))
+    implementation(project(":core"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // google places api
+    implementation(platform(libs.jetbrains.kotlin.bom))
+    implementation(libs.google.places)
+
+    // dagger hilt
+    implementation(libs.bundles.dagger.hilt)
+    kapt(libs.com.hilt.android.compiler)
 }

@@ -11,6 +11,31 @@ composeBom = "2024.05.00"
 appcompat = "1.6.1"
 material = "1.12.0"
 navigationComponent = "2.7.7"
+composeNavigation = "2.7.7"
+daggerHilt = "2.51.1"
+daggerHiltCompose = "1.2.0"
+composeConstraintLayout = "1.0.1"
+material3Android = "1.2.1"
+googlePlacesAPI = "3.4.0"
+retrofit = "2.11.0"
+okHttp = "5.0.0-alpha.2"
+room = "2.5.2"
+ksp = "1.9.0-1.0.13"
+testCore = "1.5.0"
+core-testing = "2.2.0"
+core-coroutines-test = "1.5.1"
+truth = "1.1.3"
+mockwebserver = "4.9.1"
+mockito-core = "2.12.0"
+mockito-inline = "3.7.0"
+mockito-kotlin = "3.2.0"
+mockk = "1.12.0"
+turbine = "0.11.0"
+instrumented-coroutines-test = "1.2.1"
+instrumented-hilt-test = "2.44"
+coil = "2.4.0"
+
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,13 +56,59 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationComponent" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationComponent" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "composeNavigation" }
+com-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+com-hilt-android-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
+com-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "daggerHiltCompose" }
+androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "composeConstraintLayout" }
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
+jetbrains-kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin" }
+google-places = { group = "com.google.android.libraries.places", name = "places", version.ref = "googlePlacesAPI" }
+squareup-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+squareup-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+squareup-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttp" }
+squareup-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-core = { group = "androidx.test", name = "core", version.ref = "testCore" }
+androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-testing" }
+jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "core-coroutines-test" }
+google-truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+squareup-mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockwebserver" }
+org-mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito-core" }
+org-mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockito-inline" }
+org-mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockito-kotlin" }
+io-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+app-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+jetbrains-kotlinx-coroutines-test-instrumented = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "instrumented-coroutines-test" }
+androidx-core-testing-instrumented = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-testing" }
+com-truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+com-hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "instrumented-hilt-test" }
+com-hilt-android-compiler-instrumented = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "instrumented-hilt-test" }
+io-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "navigationComponent" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+kotlin-symbol-processing = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
 
 [bundles]
 base = ["androidx-core-ktx", "androidx-appcompat", "material"]
-navigation-component = ["androidx-navigation-fragment-ktx", "androidx-navigation-ui-ktx"]
+navigation-component = ["androidx-navigation-fragment-ktx", "androidx-navigation-ui-ktx", "androidx-navigation-compose"]
+dagger-hilt = ["com-hilt-android", "androidx-hilt-navigation-compose"]
+compose = ["androidx-ui", "androidx-ui-graphics", "androidx-ui-tooling", "androidx-ui-tooling-preview",
+    "androidx-ui-test-manifest", "androidx-ui-test-junit4", "androidx-constraintlayout-compose", "androidx-material3-android"]
+retrofit = ["squareup-retrofit", "squareup-converter-gson", "squareup-logging-interceptor", "squareup-okhttp"]
+room = ["androidx-room-runtime", "androidx-room-ktx"]
+unite-testing = ["androidx-core", "androidx-core-testing", "jetbrains-kotlinx-coroutines-test", "google-truth", "squareup-mockwebserver",
+                  "org-mockito-core", "org-mockito-inline", "org-mockito-kotlin", "io-mockk", "app-turbine"]
+instrumented-test = ["jetbrains-kotlinx-coroutines-test-instrumented", "androidx-core-testing-instrumented",  "com-truth", "com-hilt-android-testing"]

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.kotlin.symbol.processing)
 }
 
 android {
@@ -34,8 +36,24 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
+    implementation(project(":data"))
+    implementation(project(":features:seven_days_forecast:domain"))
+
     implementation(libs.bundles.base)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // compose
+    implementation(libs.bundles.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    // dagger hilt
+    implementation(libs.bundles.dagger.hilt)
+    kapt(libs.com.hilt.android.compiler)
+
+    // room
+    implementation(libs.bundles.room)
+    ksp(libs.androidx.room.compiler)
+
 }

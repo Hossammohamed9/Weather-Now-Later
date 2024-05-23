@@ -21,13 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "WeatherNowAndLater"
 include(":app")
-include(":features:current_weather:data")
-include(":features:seven_days_forecast:data")
-include(":features:current_weather:domain")
-include(":features:current_weather:presentation")
-include(":features:seven_days_forecast:domain")
-include(":features:seven_days_forecast:presentation")
-include(":core:utils")
-include(":features:city_input:data")
-include(":features:city_input:domain")
-include(":features:city_input:presentation")
+include(":core")
+include(":data")
+include(":features:seven_days_forecast")
+include(":features:input_city")
+include(":features:current_weather")

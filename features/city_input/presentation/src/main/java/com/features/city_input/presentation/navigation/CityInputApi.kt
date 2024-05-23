@@ -2,16 +2,16 @@ package com.features.city_input.presentation.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import com.core.utils.common.navigation.FeatureApi
+import com.core.navigation.FeatureApi
 
-interface CityInputApi : FeatureApi
+interface CityInputFeatureApi : FeatureApi
 
-class CityInputApiImpl : CityInputApi{
+class CityInputFeatureApiImpl : CityInputFeatureApi{
     override fun registerGraph(
         navHostController: NavHostController,
         navGraphBuilder: NavGraphBuilder
     ) {
-        TODO("Not yet implemented")
+        InternalCityInputFeatureApi.registerGraph(navHostController, navGraphBuilder)
     }
 
 }

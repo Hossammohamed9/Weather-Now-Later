@@ -1,6 +1,11 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.kotlin.symbol.processing)
+    alias(libs.plugins.dagger.hilt)
 }
 
 android {
@@ -18,6 +23,16 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        val apiKey = properties.getProperty("API_KEY", "your_API_key")
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
+        manifestPlaceholders["API_KEY"] = apiKey
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -51,6 +66,12 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
+    implementation(project(":data"))
+    implementation(project(":features:input_city"))
+    implementation(project(":features:current_weather"))
+    implementation(project(":features:seven_days_forecast"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -66,4 +87,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // dagger hilt
+    implementation(libs.bundles.dagger.hilt)
+    kapt(libs.com.hilt.android.compiler)
+
+    // google places api
+    implementation(platform(libs.jetbrains.kotlin.bom))
+    implementation(libs.google.places)
+
+    // room
+    implementation(libs.bundles.room)
+    ksp(libs.androidx.room.compiler)
 }

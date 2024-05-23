@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.dagger.hilt)
 }
 
 android {
@@ -34,8 +36,19 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
+    implementation(project(":data"))
+
     implementation(libs.bundles.base)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // google places api
+    implementation(platform(libs.jetbrains.kotlin.bom))
+    implementation(libs.google.places)
+
+    // dagger hilt
+    implementation(libs.bundles.dagger.hilt)
+    kapt(libs.com.hilt.android.compiler)
 }
