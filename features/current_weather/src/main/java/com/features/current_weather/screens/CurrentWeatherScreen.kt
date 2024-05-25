@@ -29,9 +29,9 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.core.navigation.CityInputRoute
 import com.core.navigation.ForecastRoute
-import com.core.utils.formatToHours
-import com.core.utils.toCelsius
 import com.features.current_weather.R
+import com.hossam.formatting_library.formatUnixToHours
+import com.hossam.formatting_library.tempToCelsius
 
 @Composable
 fun CurrentWeather(viewModel: CurrentWeatherViewModel, navHostController: NavHostController, cityId: String) {
@@ -74,9 +74,7 @@ fun CurrentWeather(viewModel: CurrentWeatherViewModel, navHostController: NavHos
 @Composable
 fun MainContent(navHostController: NavHostController, viewModel: CurrentWeatherViewModel, cityId: String){
 
-    val viewState = viewModel.state.value
-
-    when (viewState) {
+    when (val viewState = viewModel.state.value) {
         is CurrentWeatherViewState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
@@ -92,7 +90,7 @@ fun MainContent(navHostController: NavHostController, viewModel: CurrentWeatherV
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(text = viewState.weather.timezone, fontSize = 24.sp, modifier = Modifier.padding(bottom = 16.dp, top = 16.dp))
-                Text(text = viewState.weather.current.time.formatToHours(), fontSize = 24.sp, modifier = Modifier.padding(bottom = 16.dp, top = 16.dp))
+                Text(text = viewState.weather.current.time.formatUnixToHours(), fontSize = 24.sp, modifier = Modifier.padding(bottom = 16.dp, top = 16.dp))
                 AsyncImage(
                     modifier = Modifier
                         .size(64.dp)
@@ -101,7 +99,7 @@ fun MainContent(navHostController: NavHostController, viewModel: CurrentWeatherV
                     contentDescription = null,
                 )
 
-                Text(text = viewState.weather.current.temp.toCelsius(), fontSize = 32.sp, modifier = Modifier.padding(bottom = 8.dp))
+                Text(text = viewState.weather.current.temp.tempToCelsius(), fontSize = 32.sp, modifier = Modifier.padding(bottom = 8.dp))
                 Text(text = viewState.weather.current.description, fontSize = 20.sp)
 
                 Button(onClick = {

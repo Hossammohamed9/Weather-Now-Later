@@ -44,6 +44,7 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":data"))
+    implementation(project(":formatting_library"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -64,4 +65,5 @@ dependencies {
     testImplementation(libs.bundles.unite.testing)
     // coil
     implementation(libs.io.coil.compose)
+
 }

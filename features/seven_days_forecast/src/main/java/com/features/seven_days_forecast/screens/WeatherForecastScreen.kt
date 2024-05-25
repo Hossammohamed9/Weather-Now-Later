@@ -23,11 +23,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.core.models.Daily
-import com.core.utils.formatToDay
-import com.core.utils.toCelsius
 import com.features.seven_days_forecast.mvi.ForecastIntent
 import com.features.seven_days_forecast.mvi.WeatherForecastViewModel
 import com.features.seven_days_forecast.mvi.WeatherForecastViewState
+import com.hossam.formatting_library.formatUnixToDay
+import com.hossam.formatting_library.tempToCelsius
 
 @Composable
 fun WeatherForecast(viewModel: WeatherForecastViewModel, cityId: String){
@@ -76,15 +76,15 @@ fun WeatherItem(weather: Daily) {
         Spacer(modifier = Modifier.width(16.dp))
 
         Column {
-            Text(text = weather.time.formatToDay(), fontSize = 20.sp, modifier = Modifier.padding(bottom = 4.dp))
+            Text(text = weather.time.formatUnixToDay(), fontSize = 20.sp, modifier = Modifier.padding(bottom = 4.dp))
             Text(text = weather.description, fontSize = 16.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f))
         }
 
         Spacer(modifier = Modifier.weight(1f))
 
         Column(horizontalAlignment = Alignment.End) {
-            Text(text = "Min: ${weather.minTemp.toCelsius()}", fontSize = 16.sp)
-            Text(text = "Max: ${weather.maxTemp.toCelsius()}", fontSize = 16.sp)
+            Text(text = "Min: ${weather.minTemp.tempToCelsius()}", fontSize = 16.sp)
+            Text(text = "Max: ${weather.maxTemp.tempToCelsius()}", fontSize = 16.sp)
         }
     }
 }

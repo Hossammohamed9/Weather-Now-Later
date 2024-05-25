@@ -71,6 +71,7 @@ dependencies {
     implementation(project(":features:input_city"))
     implementation(project(":features:current_weather"))
     implementation(project(":features:seven_days_forecast"))
+    implementation(project(":formatting_library"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
