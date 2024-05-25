@@ -5,6 +5,5 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.kapt) apply false
     alias(libs.plugins.kotlin.symbol.processing) apply false
     alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.navigation.safeargs) apply false
     alias(libs.plugins.dagger.hilt) apply false
 }

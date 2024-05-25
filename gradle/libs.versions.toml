@@ -34,7 +34,6 @@ turbine = "0.11.0"
 instrumented-coroutines-test = "1.2.1"
 instrumented-hilt-test = "2.44"
 coil = "2.4.0"
-myFormattingLibrary = "1.0"
 
 
 
@@ -89,7 +88,6 @@ com-truth = { group = "com.google.truth", name = "truth", version.ref = "truth" 
 com-hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "instrumented-hilt-test" }
 com-hilt-android-compiler-instrumented = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "instrumented-hilt-test" }
 io-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
-hossam-formatting-library = { group = "com.hossam", name = "formatting-library" , version.ref = "myFormattingLibrary" }
 
 
 
@@ -98,7 +96,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "navigationComponent" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 kotlin-symbol-processing = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
