@@ -20,10 +20,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.core.models.Daily
+import com.features.seven_days_forecast.R
 import com.features.seven_days_forecast.mvi.ForecastIntent
 import com.features.seven_days_forecast.mvi.WeatherForecastViewModel
 import com.features.seven_days_forecast.mvi.WeatherForecastViewState
@@ -45,7 +47,10 @@ fun WeatherForecast(viewModel: WeatherForecastViewModel, cityId: String){
             }
         }
         is WeatherForecastViewState.Success -> {
-            LazyColumn(modifier = Modifier.fillMaxSize().statusBarsPadding().padding(16.dp)) {
+            LazyColumn(modifier = Modifier
+                .fillMaxSize()
+                .statusBarsPadding()
+                .padding(16.dp)) {
                 items(viewState.dailyWeatherList.drop(1)) { weather ->
                     WeatherItem(weather = weather)
                 }
@@ -85,8 +90,8 @@ fun WeatherItem(weather: Daily) {
         Spacer(modifier = Modifier.weight(1f))
 
         Column(horizontalAlignment = Alignment.End) {
-            Text(text = "Min: ${weather.minTemp.tempToCelsius()}", color = MaterialTheme.colorScheme.onSurface, fontSize = 16.sp)
-            Text(text = "Max: ${weather.maxTemp.tempToCelsius()}", color = MaterialTheme.colorScheme.onSurface, fontSize = 16.sp)
+            Text(text = stringResource(R.string.min, weather.minTemp.tempToCelsius()), color = MaterialTheme.colorScheme.onSurface, fontSize = 16.sp)
+            Text(text = stringResource(R.string.max, weather.maxTemp.tempToCelsius()), color = MaterialTheme.colorScheme.onSurface, fontSize = 16.sp)
         }
     }
 }
