@@ -1,5 +1,8 @@
 package com.features.current_weather.screens
 
+import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +17,7 @@ import com.features.current_weather.use_cases.FetchCurrentWeatherUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -84,6 +88,20 @@ class CurrentWeatherViewModel @Inject constructor(
         viewModelScope.launch(dispatcherProvider.io){
             deleteCurrentSavedCityUseCase()
         }
+    }
+
+    fun getCityName(latitude: Double?, longitude: Double?,context: Context): String {
+        val geocoder = Geocoder(context, Locale.getDefault())
+        var cityName = ""
+        try {
+            val addresses: MutableList<Address>? = geocoder.getFromLocation(latitude!!, longitude!!, 1)
+            if (addresses!!.isNotEmpty()) {
+                cityName = addresses[0].subAdminArea
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return cityName
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.Locale
 import kotlin.math.roundToInt
 
 fun Double.tempToCelsius(): String{
-    return this.minus(273.15).roundToInt().toString() + " C"
+    return this.minus(273.15).roundToInt().toString() + " \u2103"
 }
 
 fun Long.formatUnixToHours(): String{

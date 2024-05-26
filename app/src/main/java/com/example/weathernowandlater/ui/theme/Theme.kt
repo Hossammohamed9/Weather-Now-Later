@@ -17,29 +17,31 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFF4169e2),
-    secondary = Color(0xFF64656B),
-    onSecondary = Color.LightGray,
-    tertiary = Color(0xFF989DAD),
-    surface = Color(0xFF16181c),
+    primary = Color(0xFFBB86FC),
+    onPrimary = Color.Black,
+    background = Color(0xFF121212),
+    surface = Color(0xFF121212),
     onSurface = Color.White,
-    onBackground = Color(0xFF16181c)
+    error = Color(0xFFCF6679),
+    onError = Color.Black,
+    onBackground = Color.Black
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFF4169e2),
-    secondary = Color(0xFF7E99EC),
-    onSecondary = Color.Gray,
-    tertiary = Color(0xFF7E99EC),
+    primary = Color(0xFF6200EE),
+    onPrimary = Color.White,
+    background = Color.White,
     surface = Color.White,
     onSurface = Color.Black,
-    onBackground = Color(0xFF7E99EC)
+    error = Color.Red,
+    onError = Color.White,
+    onBackground = Color.White
 )
 @Composable
 fun WeatherNowAndLaterTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -51,7 +53,6 @@ fun WeatherNowAndLaterTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
-
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

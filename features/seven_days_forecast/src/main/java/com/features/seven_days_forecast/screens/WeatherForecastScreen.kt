@@ -1,5 +1,6 @@
 package com.features.seven_days_forecast.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -64,6 +65,7 @@ fun WeatherItem(weather: Daily) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.surface)
             .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -76,15 +78,15 @@ fun WeatherItem(weather: Daily) {
         Spacer(modifier = Modifier.width(16.dp))
 
         Column {
-            Text(text = weather.time.formatUnixToDay(), fontSize = 20.sp, modifier = Modifier.padding(bottom = 4.dp))
+            Text(text = weather.time.formatUnixToDay(), fontSize = 20.sp, color = MaterialTheme.colorScheme.onSurface, modifier = Modifier.padding(bottom = 4.dp))
             Text(text = weather.description, fontSize = 16.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f))
         }
 
         Spacer(modifier = Modifier.weight(1f))
 
         Column(horizontalAlignment = Alignment.End) {
-            Text(text = "Min: ${weather.minTemp.tempToCelsius()}", fontSize = 16.sp)
-            Text(text = "Max: ${weather.maxTemp.tempToCelsius()}", fontSize = 16.sp)
+            Text(text = "Min: ${weather.minTemp.tempToCelsius()}", color = MaterialTheme.colorScheme.onSurface, fontSize = 16.sp)
+            Text(text = "Max: ${weather.maxTemp.tempToCelsius()}", color = MaterialTheme.colorScheme.onSurface, fontSize = 16.sp)
         }
     }
 }

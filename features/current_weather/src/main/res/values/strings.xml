@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="current_weather">Current Weather</string>
+    <string name="choose_another_city">Choose another city</string>
+    <string name="_7_day_forecast">7-Day Forecast</string>
+    <string name="retry">Retry</string>
 </resources>
