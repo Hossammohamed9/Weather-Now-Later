@@ -85,7 +85,6 @@ app-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "tur
 jetbrains-kotlinx-coroutines-test-instrumented = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "instrumented-coroutines-test" }
 androidx-core-testing-instrumented = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-testing" }
 com-truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
-com-hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "instrumented-hilt-test" }
 com-hilt-android-compiler-instrumented = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "instrumented-hilt-test" }
 io-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
@@ -110,4 +109,4 @@ retrofit = ["squareup-retrofit", "squareup-converter-gson", "squareup-logging-in
 room = ["androidx-room-runtime", "androidx-room-ktx"]
 unite-testing = ["androidx-core", "androidx-core-testing", "jetbrains-kotlinx-coroutines-test", "google-truth", "squareup-mockwebserver",
                   "org-mockito-core", "org-mockito-inline", "org-mockito-kotlin", "io-mockk", "app-turbine"]
-instrumented-test = ["jetbrains-kotlinx-coroutines-test-instrumented", "androidx-core-testing-instrumented",  "com-truth", "com-hilt-android-testing"]
+instrumented-test = ["jetbrains-kotlinx-coroutines-test-instrumented", "androidx-core-testing-instrumented",  "com-truth", ]
